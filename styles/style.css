@@ -1,0 +1,174 @@
+/* body -> very dark blue grey */
+body {
+  background-color: #121212;
+  color: #f8fafc;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* h1 -> light blue */
+h1 {
+    color: #ececec;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+/* Grid of words 5 char x 6 guess */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 7px;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+
+/* let .row divs pass through so the tiles land in #grid's 5 columns */
+.row {
+  display: contents;
+}
+
+/* Each cell in the grid */
+.tile {
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box; /* border sits inside the 60px */
+  border: 2px solid #3a3a3a ; /* light blue border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+/* Correct letter and position -> green */
+.correct {
+  background-color: #508e4a; /* green */
+  color: white;
+  border: none
+}
+/* Correct letter but wrong position -> yellow */
+.present {
+  background-color: #b59f3a; /* yellow */
+  color: white;
+  border: none
+}
+
+/* Wrong letter -> gray */
+.absent {
+  background-color: #3a3a3c; /* gray */
+  color: white;
+  border: none
+}
+
+/* rotate flip vertical when a guess is checked */
+@keyframes flip {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+.tile.flip {
+  animation: flip 0.5s ease forwards;
+}
+
+/* on-screen keyboard */
+#keyboard {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.krow { display: flex; gap: 6px; }
+
+.key {
+  width: 44px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4a4a4a;
+  color: #f0f0f0;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key.wide { width: 66px; font-size: 0.65em; }
+
+/* key states - add these classes from your js */
+.key.correct { background: #4e9b46; }
+.key.present { background: #b59f3a; color: white; }
+.key.absent  { background: #262626; color: white; }
+
+/* winning screen */
+#winscreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(18, 18, 18, 0.94);
+}
+
+#winscreen.hidden { display: none; }
+
+#winscreen.lost h2 { color: #d9534f; }
+
+#winscreen h2 {
+  margin: 0;
+  font-size: 2.2em;
+  color: #4e9b46;
+}
+
+#winscreen p {
+  margin: 0;
+  font-size: 1em;
+  color: #d8d8d8;
+}
+
+/* small share grid: colours only, no letters */
+#minigrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.minirow { display: flex; gap: 4px; }
+
+.minicell {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  background: #3a3a3a;
+}
+
+/* more specific than the bare .correct/.present/.absent rules above */
+.minicell.correct  { background-color: #508e4a; }
+.minicell.present  { background-color: #b59f3a; }
+.minicell.absent   { background-color: #3a3a3c; }
+
+#winscreen button {
+  margin-top: 8px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 4px;
+  background: #4e9b46;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
