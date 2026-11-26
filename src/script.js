@@ -161,3 +161,13 @@ class Wordle {
 let app = new Wordle();
 addEventListener("keydown", (e) => app.update(e));
 document.getElementById("resetbtn").addEventListener("click", () => app.reset());
+
+// on-screen keys: tap types the same thing the keyboard does
+for (const row of app.key_id) for (const id of row) {
+    const key = document.getElementById(id);
+    const name = id.replace("key_", "");
+    key.addEventListener("click", () => {
+        const k = name === "enter" ? "Enter" : name === "backspace" ? "Backspace" : name;
+        app.update({ key: k });
+    });
+}
