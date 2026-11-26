@@ -172,3 +172,35 @@ h1 {
   font-size: 1em;
   cursor: pointer;
 }
+
+/* phones: everything scales with the viewport width */
+@media (max-width: 560px) {
+  body { padding: 12px; }
+
+  h1 { font-size: 1.6em; margin-bottom: 12px; }
+
+  #grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+    max-width: 350px;
+    margin: 12px auto 0;
+    gap: 6px;
+  }
+
+  .tile {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    font-size: 1.5em;
+  }
+
+  #keyboard { width: 100%; gap: 5px; margin-top: 16px; }
+  .krow { width: 100%; gap: 5px; }
+
+  .key { width: auto; flex: 1 1 0; height: 46px; font-size: 0.95em; }
+  .key.wide { flex: 1.7 1 0; }
+
+  #winscreen { padding: 20px; }
+  #winscreen h2 { font-size: 1.7em; }
+  .minicell { width: 15px; height: 15px; }
+}
