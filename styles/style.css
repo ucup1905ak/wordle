@@ -175,30 +175,30 @@ h1 {
 
 /* phones: everything scales with the viewport width */
 @media (max-width: 560px) {
-  body { padding: 12px; }
+  body { padding: 8px; }
 
-  h1 { font-size: 1.6em; margin-bottom: 12px; }
+  h1 { font-size: 1.5em; margin-bottom: 10px; }
 
   #grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     width: 100%;
-    max-width: 350px;
-    margin: 12px auto 0;
-    gap: 6px;
+    max-width: 100%;
+    margin: 8px auto 0;
+    gap: 5px;
   }
 
   .tile {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    font-size: 1.5em;
+    font-size: 1.15em;
   }
 
-  #keyboard { width: 100%; gap: 5px; margin-top: 16px; }
-  .krow { width: 100%; gap: 5px; }
+  #keyboard { width: 100%; gap: 4px; margin-top: 14px; }
+  .krow { width: 100%; gap: 4px; }
 
-  .key { width: auto; flex: 1 1 0; height: 46px; font-size: 0.95em; }
-  .key.wide { flex: 1.7 1 0; }
+  .key { width: auto; flex: 1 1 0; height: 48px; font-size: 0.85em; border-radius: 3px; }
+  .key.wide { flex: 1.6 1 0; }
 
   #winscreen { padding: 20px; }
   #winscreen h2 { font-size: 1.7em; }
